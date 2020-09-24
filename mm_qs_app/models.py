@@ -3,14 +3,19 @@ from django.conf import settings
 
 User = settings.AUTH_USER_MODEL
 
-
+class PostManager(models.Manager):
+    def smaller_than(self, size):
+        return self.filter(comments__lt=size)
 
 class Post(models.Model):
     title = models.CharField(max_length=120)
     description = models.TextField()
     author = models.ForeignKey('Author', on_delete=models.CASCADE)
-    image = models.ImageField()
+    image = models.ImageField(null=True, blank=True)
     slug = models.SlugField(unique=True)
+    comments = models.IntegerField(default=0)
+
+    objects = PostManager()
 
     def __str__(self):
         return self.title
