@@ -6,10 +6,18 @@
     <div class="row row-cols-1 ml-2">
         <h2 class="display-4">all posts</h2>
         {% for post in all_posts %}
-            <div>
-              <h4 class="card-title">{{post.title}}</h4>
+            <div class="border mb-2 p-1">
+                <h6 class="text-uppercase text-primary">{{post.title}}</h6>
               <p class="card-text">{{post.description}}</p>
-              <p class="font-weight-bold font-italic">{{post.author}}</p>
+              <p class="font-weight-bold font-italic">author: {{post.author}}</p>
+            </div>
+        {% endfor %}
+        <h2 class="display-4">admins posts</h2>
+        {% for post in admins_posts %}
+            <div class="border mb-2 p-1">
+              <h6 class="text-uppercase text-primary">{{post.title}}</h6>
+                <p>{{post.description}}</p>
+              <p class="font-weight-bold font-italic">author: {{post.author}}</p>
                 <br>
             </div>
         {% endfor %}
