@@ -1,0 +1,18 @@
+{% extends 'mm_qs_app/base.html' %}
+
+{% block content %}
+<div>
+    <h1 class="display-2 text-white bg-dark ml-0">Blog Posts</h1>
+    <div class="row row-cols-1 ml-2">
+        <h2 class="display-4">all posts</h2>
+        {% for post in all_posts %}
+            <div>
+              <h4 class="card-title">{{post.title}}</h4>
+              <p class="card-text">{{post.description}}</p>
+              <p class="font-weight-bold font-italic">{{post.author}}</p>
+                <br>
+            </div>
+        {% endfor %}
+      </div>
+</div>
+{% endblock %}

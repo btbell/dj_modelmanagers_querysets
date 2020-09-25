@@ -1,11 +1,9 @@
 from django.db import models
 from django.conf import settings
 
-User = settings.AUTH_USER_MODEL
+from .managers import PostManager
 
-class PostManager(models.Manager):
-    def smaller_than(self, size):
-        return self.filter(comments__lt=size)
+User = settings.AUTH_USER_MODEL
 
 class Post(models.Model):
     title = models.CharField(max_length=120)
